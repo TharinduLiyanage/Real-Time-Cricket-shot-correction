@@ -18,8 +18,8 @@ inCorrectColor = (0, 0, 256)
 
 mp_drawing = mp.solutions.drawing_utils # Drawing helpers
 mp_holistic = mp.solutions.holistic # Mediapipe Solutions
-cap = cv2.VideoCapture(0)
 
+cap = cv2.VideoCapture(0)
 count = 0
 
 
@@ -58,7 +58,7 @@ def runDefencemodel():
                 shotDetection_class = Defencemodel.predict(X)[0]
                 shotDetection_prob = Defencemodel.predict_proba(X)[0][1]
             
-                if  shotDetection_prob < 0.80 or shotDetection_class == "Incorrect":
+                if shotDetection_prob < 0.35 or shotDetection_class == "Incorrect":
 
                     color = inCorrectColor
                     count = 0
@@ -113,9 +113,9 @@ def runDefencemodel():
 
             cv2.imshow('Live Webcam Feed', image)
             
-            if cv2.waitKey(10) & 0xFF == ord('q' or 'Q') or count == 60 :   
-                break
-                    
+            if cv2.waitKey(10) & 0xFF == ord('q' or 'Q') or count == 60 :  
+                break 
+
         cap.release()
         cv2.destroyAllWindows()
 
@@ -152,7 +152,7 @@ def runFoot_engagementmodel():
                 shotDetection_class = Foot_engagementmodel.predict(X)[0]
                 shotDetection_prob = Foot_engagementmodel.predict_proba(X)[0][1]
             
-                if  shotDetection_prob < 0.40 or shotDetection_class == "Incorrect":
+                if  shotDetection_prob < 0.35 or shotDetection_class == "Incorrect":
 
                     color = inCorrectColor
                     count = 0
@@ -284,6 +284,7 @@ def stance():
                 cv2.putText(image, str(round( shotDetection_prob,2)), (10,40), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
                 
 
+                # display steps 
                 cv2.circle(image, (0, 100), 15, (0, 255, 255), -1)
                 cv2.putText(image, '1', (3, 105), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1, cv2.LINE_AA)
                 cv2.circle(image, (0, 160), 15, (0, 0, 255), -1)
