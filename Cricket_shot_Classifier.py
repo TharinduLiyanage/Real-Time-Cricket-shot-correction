@@ -20,7 +20,7 @@ mp_drawing = mp.solutions.drawing_utils # Drawing helpers
 mp_holistic = mp.solutions.holistic # Mediapipe Solutions
 
 cap = cv2.VideoCapture(0)
-count = 0
+
 
 
 def runDefencemodel():
