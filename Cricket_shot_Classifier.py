@@ -28,7 +28,7 @@ def runDefencemodel():
     # Initiate holistic model
 
     with mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=0.5) as holistic:
-
+        count = 0
         while cap.isOpened():
 
             ret, frame = cap.read()
@@ -122,7 +122,7 @@ def runDefencemodel():
 def runFoot_engagementmodel():
     # Initiate holistic model
     with mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=0.5) as holistic:
-
+        count = 0
         while cap.isOpened():
 
             ret, frame = cap.read()
@@ -216,7 +216,7 @@ def runFoot_engagementmodel():
 def stance():  
     # Initiate holistic model
     with mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=0.5) as holistic:
-
+        count = 0
         while cap.isOpened():
 
             ret, frame = cap.read()
