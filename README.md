@@ -1,0 +1,2 @@
+# Real-Time-Cricket-shot-correction
+This approach involves using a state-of-the-art pose estimation model and live video streaming to create a fast and efficient system. This approach is unique in that it places a particular emphasis on re-correcting the pose of the player, which is not typically addressed in current systems. Additionally, this system is capable of estimating posture from a live video feed, which is a significant improvement over many existing systems. 
